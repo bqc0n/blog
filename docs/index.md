@@ -16,7 +16,7 @@ import moment from 'moment';
 
 <article v-for="post of posts" class="home-posts-article">
   <a :href="post.url" class="block text-inherit no-underline hover:underline">
-    <p class="text-2xl leading-4">{{ post.frontmatter.title }}</p>
+    <p class="text-2xl">{{ post.frontmatter.title }}</p>
     <p class="text-sm text-gray-500">{{ moment(post.frontmatter.date).format('YYYY-MM-DD') }}</p>
     <p>{{ post.frontmatter.description }}</p>
   </a>   

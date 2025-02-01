@@ -1,14 +1,32 @@
+---
+title: Tags
+next: false
+prev: false
+---
+
 # タグ一覧
-<!--タグのリストと記事数を表示-->
-<script lang="ts" setup>
-import { data as tags } from "../.vitepress/tags.data.mts";
-import PostCounter from "../.vitepress/components/PostCounter.vue"
+
+<script setup>
+import { data as posts } from '../.vitepress/posts.data.mts'
+
+var tags = {}
+posts.forEach(post => {
+    if (post.frontmatter.tags) {
+        post.frontmatter.tags.forEach(tag => {
+            if (tags[tag] === undefined) {
+                tags[tag] = 1
+            } else {
+                tags[tag] += 1
+            }
+        })
+    }
+})
+
+var tag_list = Object.keys(tags)
 </script>
 
 <ul>
-    <li v-for="tagpage of tags">
-        <a :href="tagpage.url" class="font-semibold text-lg">{{ tagpage.frontmatter.title.replace('Tags/', '') }}
-            <span class="text-sm"> (<PostCounter :tag="tagpage.url.replace('/tags/', '').replace('.html', '')" />)</span>
-        </a>
-    </li>
+  <li v-for="tag of tag_list">
+    <a :href="'/tags/' + encodeURIComponent(tag.replaceAll(' ', '')) + '/'">{{ tag }} ({{ tags[tag] }})</a>
+  </li>
 </ul>
