@@ -10,17 +10,14 @@ import { data as posts } from '.vitepress/posts.data.mts';
 import moment from 'moment';
 </script>
 
-
 # blog.bqc0n.com
 
-備忘録
-
-
+個人的な備忘録集です。記事の内容は、[MIT-License](https://github.com/bqc0n/blog/blob/main/LICENSE)で利用可能です。
 
 <article v-for="post of posts" class="home-posts-article">
-  <a :href="post.url" class="block no-underline">
-    <p class="font-bold underline">{{ post.frontmatter.title }}</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 no-underline">{{ moment(post.frontmatter.date).format('YYYY-MM-DD') }}</p>
-    <p class="text-black">{{ post.frontmatter.description }}</p>
+  <a :href="post.url" class="block text-inherit no-underline hover:underline">
+    <p class="text-2xl leading-4">{{ post.frontmatter.title }}</p>
+    <p class="text-sm text-gray-500">{{ moment(post.frontmatter.date).format('YYYY-MM-DD') }}</p>
+    <p>{{ post.frontmatter.description }}</p>
   </a>   
 </article>

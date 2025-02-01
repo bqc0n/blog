@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "blog.bqc0n.com",
-  description: "備忘録",
+  description: "個人的な備忘録",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home-posts-article {
+    border-top: 1px solid var(--vp-c-divider);
+    justify-content: space-between;
+    padding: 10px 0;
+}
