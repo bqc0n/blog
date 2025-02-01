@@ -1,25 +1,26 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
-
-hero:
-  name: "blog.bqc0n.com"
-  text: "備忘録"
-  tagline: My great project tagline
-  actions:
-    - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+title: Home | blog.bqc0n.com
+layout: doc
+next: false
+prev: false
 ---
 
+<script setup>
+import { data as posts } from '.vitepress/posts.data.mts';
+import moment from 'moment';
+</script>
+
+
+# blog.bqc0n.com
+
+備忘録
+
+
+
+<article v-for="post of posts" class="home-posts-article">
+  <a :href="post.url" class="block no-underline">
+    <p class="font-bold underline">{{ post.frontmatter.title }}</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 no-underline">{{ moment(post.frontmatter.date).format('YYYY-MM-DD') }}</p>
+    <p class="text-black">{{ post.frontmatter.description }}</p>
+  </a>   
+</article>

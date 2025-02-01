@@ -8,21 +8,27 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'About', link: '/about/' }
     ],
 
     sidebar: [
       {
-        text: 'Examples',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Home', link: '/' },
+          { text: 'About', link: '/about/' },
+          { text: 'Posts', link: '/posts/' },
+          { text: 'Tags', link: '/tags/' }
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+      { icon: 'github', link: 'https://github.com/bqc0n/blog' }
+    ],
+
+    footer: {
+      message: "Released Under the MIT License.",
+      copyright: "Copyright ©️ 2025 bqc0n"
+    }
   }
 })
