@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-net --allow-read --allow-env --watch --allow-import main.tsx --dev",
+    "serve": "deno run --allow-net --allow-read --allow-env --no-check main.tsx"
+  },
+  "imports": {
+    "blog": "https://raw.githubusercontent.com/denoland/deno_blog/589c4750d001ae2a4e921385be558d97060e3933/blog.tsx"
+  }
+}
