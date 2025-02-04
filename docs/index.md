@@ -1,5 +1,5 @@
 ---
-title: Home | blog.bqc0n.com
+title: Home
 layout: doc
 next: false
 prev: false
