@@ -34,7 +34,6 @@ export default defineConfig({
       {
         items: [
           {text: 'Home', link: '/'},
-          {text: 'About', link: '/about/'},
           {text: 'Posts', link: '/posts/'},
           {text: 'Tags', link: '/tags/'}
         ]
@@ -46,7 +45,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: "Released Under the MIT License.",
+      message: "Released Under the MIT License",
       copyright: "Copyright ©️ 2025 bqc0n"
     }
   }
