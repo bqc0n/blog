@@ -13,10 +13,8 @@ const current_tag = params.value.tag
 var pages = []
 posts.forEach(post => {
     if (post.frontmatter.tags){
-        var tags = post.frontmatter.tags.map(tag => { return tag.replaceAll(" ", "") })
-        if (tags.includes(current_tag)) {
-            pages.push(post)
-        }
+        var tags = post.frontmatter.tags.map(tag => tag.replaceAll(" ", "") )
+        if (tags.includes(current_tag)) pages.push(post) 
     }
 })
 
