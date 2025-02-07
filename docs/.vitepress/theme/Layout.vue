@@ -24,7 +24,7 @@ router.onAfterRouteChanged = setupMediumZoom;
 
 <template>
   <Layout>
-    <template #doc-before>
+    <template v-if="useData().page.value.relativePath.match(/^posts\/(?!index.md)/)" #doc-before>
       <PostHeader />
     </template>
   </Layout>
