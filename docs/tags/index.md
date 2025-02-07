@@ -2,6 +2,7 @@
 title: Tags
 next: false
 prev: false
+comment: false
 ---
 
 # タグ一覧

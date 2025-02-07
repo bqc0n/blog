@@ -3,6 +3,7 @@ title: Posts | blog.bqc0n.com
 layout: doc
 next: false
 prev: false
+comment: false
 ---
 <script lang="ts" setup>
 import { data as posts } from "../.vitepress/posts.data"
