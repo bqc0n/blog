@@ -3,6 +3,7 @@ title: Home
 layout: doc
 next: false
 prev: false
+comment: false
 ---
 
 <script setup>
