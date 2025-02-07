@@ -5,8 +5,9 @@ import { NolebaseGitChangelogPlugin } from "@nolebase/vitepress-plugin-git-chang
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
-import { toRefs } from "vue";
+import { toRefs, h } from "vue";
 
+import PostHeader from "./PostHeader.vue";
 import Layout from "./Layout.vue";
 
 export default {

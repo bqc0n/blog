@@ -1,8 +1,9 @@
 <script setup>
 import DefaultTheme from "vitepress/theme";
 import { onMounted } from "vue";
-import { useRouter } from "vitepress";
+import {useData, useRouter} from "vitepress";
 import mediumZoom from "medium-zoom";
+import PostHeader from "./PostHeader.vue";
 
 const { Layout } = DefaultTheme;
 const router = useRouter();
@@ -22,7 +23,11 @@ router.onAfterRouteChanged = setupMediumZoom;
 </script>
 
 <template>
-  <Layout />
+  <Layout>
+    <template #doc-before>
+      <PostHeader />
+    </template>
+  </Layout>
 </template>
 
 <style>
