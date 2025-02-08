@@ -1,6 +1,7 @@
 ---
 next: false
 prev: false
+comment: false
 ---
 
 <script setup>
