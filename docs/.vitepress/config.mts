@@ -14,6 +14,7 @@ export default defineConfig({
   cleanUrls: true,
 
   markdown: {
+    math: true,
     config: (md) => {
       md.use(markdownItFootnote)
       md.use(groupIconMdPlugin)
