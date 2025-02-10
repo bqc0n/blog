@@ -64,5 +64,9 @@ export default defineConfig({
       message: "Released Under the MIT License",
       copyright: "Copyright ©️ 2025 bqc0n"
     }
-  }
+  },
+
+  sitemap: {
+    hostname: "https://blog.bqc0n.com"
+  },
 })
