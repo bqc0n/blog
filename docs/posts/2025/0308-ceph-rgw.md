@@ -38,13 +38,13 @@ ceph auth get-or-create client.rgw.pve03 mon 'allow rw' osd 'allow rwx' >> /etc/
 
 ``` [/etc/ceph/ceph.conf]
 [client.rgw.pve01]
-  log file = /var/log/radosgw/client.rgw.$host.log
+  log file = /var/log/ceph/client.rgw.$host.log
   keyring = /etc/pve/priv/ceph/ceph.client.rgw.keyring
 [client.rgw.pve02]
-  log file = /var/log/radosgw/client.rgw.$host.log
+  log file = /var/log/ceph/client.rgw.$host.log
   keyring = /etc/pve/priv/ceph/ceph.client.rgw.keyring
 [client.rgw.pve03]
-  log file = /var/log/radosgw/client.rgw.$host.log
+  log file = /var/log/ceph/client.rgw.$host.log
   keyring = /etc/pve/priv/ceph/ceph.client.rgw.keyring
 ```
 
