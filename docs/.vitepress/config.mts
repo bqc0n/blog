@@ -1,4 +1,5 @@
 import {defineConfig} from 'vitepress'
+import { withMermaid } from "vitepress-plugin-mermaid";
 import markdownItFootnote from 'markdown-it-footnote'
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons'
 import {GitChangelog, GitChangelogMarkdownSection} from '@nolebase/vitepress-plugin-git-changelog/vite'
@@ -6,7 +7,7 @@ import lightbox from "vitepress-plugin-lightbox"
 
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid({
   title: "blog.bqc0n.com",
   description: "個人的な備忘録",
 
@@ -68,5 +69,10 @@ export default defineConfig({
 
   sitemap: {
     hostname: "https://blog.bqc0n.com"
+  },
+
+  mermaid: {},
+  mermaidPlugin: {
+    class: "mermaid my-class", // set additional css classes for parent container
   },
 })
