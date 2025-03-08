@@ -7,26 +7,20 @@ tags: [ "proxmox", "ceph" ]
 
 ## 構成
 
-\<put kousei here\>
+私の場合、pve01、pve02、pve03の3台でCephクラスタを構成している。
+構成が異なる場合、コマンドは適宜読み替えてほしい。
 
 ## Install RadosGW
-
+全てのノードに`radosgw`をインストールする。
 ```sh
 apt install radosgw
-systemctl enable radosgw
-systemctl start radosgw
 ```
 
-##
+## ユーザ作成
 
-Ceph Object Storageは、Cephクラスタ(gateway daemonやstorage cluster)とのやりとりにはCeph Storage Cluster userを使うが、
-Object Storage自体に別でUser Authの仕組みがある。
-
-```mermaid
-Client -- Object Storage user --> Ceph Object Storage -- Storage Cluster user --> Ceph Storage Cluster
-```
-
-### ユーザ作成
+まずはCephクラスタにユーザを作成する。
+このユーザはradosgwがcephクラスタへのアクセスに使うもので、S3とは関係ないので注意。
+S3のユーザはこのあと作成する。
 
 ```shell
 ceph-authtool --create-keyring /etc/ceph/ceph.client.rgw.keyring
@@ -40,7 +34,9 @@ ceph auth get-or-create client.rgw.pve03 mon 'allow rw' osd 'allow rwx' >> /etc/
 
 ## RadosGW 設定
 
-```
+ファイルの最後に追記する。
+
+``` [/etc/ceph/ceph.conf]
 [client.rgw.pve01]
   log file = /var/log/radosgw/client.rgw.$host.log
   keyring = /etc/pve/priv/ceph/ceph.client.rgw.keyring
@@ -76,20 +72,9 @@ systemctl start ceph-radosgw@rgw.pve02
 systemctl start ceph-radosgw@rgw.pve03
 ```
 
-## Pool
-ここで気づいたのだが、Poolは自動で作られるらしい。
-```shell
-root@pve01:/var/log/ceph# ceph osd pool ls
-...(略)...
-.rgw.root
-default.rgw.log
-default.rgw.control
-default.rgw.meta
-```
-
 ## RadosGW ユーザ作成
 
-`access_key`と`secret_key`メモしておく。
+ユーザを作成すると、`access_key`と`secret_key`も同時に生成される。
 
 ```shell
 radosgw-admin user create --uid="test" --display-name="Test User"
@@ -176,3 +161,65 @@ aws s3 mv s3://test-bucket/test.txt download-test.txt --profile ceph-test --endp
 cat download-test.txt
 aaaaaa 
 ```
+
+## Misskeyで使えるようにする
+
+ユーザ・バケットの作成は済ませてあり、バケットの名前は`misskey-files`であるとする。
+
+### Policy設定
+
+Misskeyは、Get操作がPublicであることを要求するので、Policyを設定する。
+
+```json [policy.json]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "*"
+        ]
+      },
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::misskey-files/*"
+      ]
+    }
+  ]
+}
+```
+
+バケットポリシーは、`radosgw-admin`ではなく普通にS3操作で設定する[^policy-setting]。
+
+`s3cmd --configure`でプロンプトに従い設定をしたら、以下を実行する。
+
+```shell
+s3cmd setpolicy policy.json s3://misskey-files
+```
+
+### MisskeyでObject Storageの設定
+
+`コントロールパネル > オブジェクトストレージ`から設定できます。
+
+|    項目    |                    値                     |
+|:--------:|:----------------------------------------:|
+| Base URL | `http://<endpoint>:<port>/misskey-files` |
+|  Bucket  |             `misskey-files`              |
+|  Prefix  |                   お好みで                   |
+| endpoint |           `<endpoint>:<port>`            |
+|  Region  |                `default`                 |
+
+::: warning
+Base URLを名前解決した先がプライベートIPだとエラーになる。
+```
+INFO *	[download]	Downloading http://ceph-rgw.default.svc.cluster.local./misskey-files/misskey-files/6caeac33-2a0f-4636-8de6-01d2f6fa2a45.webp to /tmp/tmp-116-0z1wF1auUSA1 ...
+ERR  *	[server]	RequestError: Blocked address: 10.233.55.230
+```
+今回はAPIをCloudflare tunnelでインターネットからアクセスするようにして解決した。
+:::
+
+[^policy-setting]: [Ceph Documentation | Ceph Object Gateway/Bucket Policies](https://docs.ceph.com/en/latest/radosgw/bucketpolicy/#creation-and-removal:~:text=Bucket%20policies%20are%20managed%20through%20standard%20S3%20operations%20rather%20than%20radosgw%2Dadmin.)
