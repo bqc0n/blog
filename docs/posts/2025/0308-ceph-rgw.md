@@ -1,7 +1,7 @@
 ---
 title: ProxmoxのCephでObject Storageを使えるようにした 
 date: 2025-03-08
-description: ProxmoxのCephで、S3-CompatibleなRadosGWを使えるようにする
+description: ProxmoxのCephで、S3-CompatibleなRadosGWを使えるようにする。ついでにMisskeyのオブジェクトストレージを設定する。
 tags: [ "proxmox", "ceph" ]
 ---
 
@@ -214,7 +214,7 @@ s3cmd setpolicy policy.json s3://misskey-files
 |  Region  |                `default`                 |
 
 ::: warning
-Base URLを名前解決した先がプライベートIPだとエラーになる。
+Base URL、もしくはそれを名前解決した先がプライベートIPだとエラーになる。
 ```
 INFO *	[download]	Downloading http://ceph-rgw.default.svc.cluster.local./misskey-files/misskey-files/6caeac33-2a0f-4636-8de6-01d2f6fa2a45.webp to /tmp/tmp-116-0z1wF1auUSA1 ...
 ERR  *	[server]	RequestError: Blocked address: 10.233.55.230
