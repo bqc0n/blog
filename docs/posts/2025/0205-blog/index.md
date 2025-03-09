@@ -34,14 +34,15 @@ bun vitepress init
 ```
 
 ## ディレクトリ構成
-`posts/<year>`の下に、`<MMDD-title>.md`というフォーマットでファイルを作って記事を書くことにする。
+`posts/<year>`の下に、`<MMDD-title>`というフォーマットでディレクトリを作って記事を書くことにする。
 ```
 .
 ├── docs
 │   ├── posts
 │   │   ├── <year>
-│   │   │   ├── <MMDD-title>.md
-│   │   │   └── ...
+│   │   │   └── <MMDD-title>
+│   │   │       ├── index.md
+│   │   │       └── ...
 ```
 
 ## Tailwind CSSを入れる
@@ -71,7 +72,7 @@ module.exports = {
 export default {
     content: [
         './docs/index.md',
-        './docs/**/*.md',
+        './docs/**/index.md',
         './.vitepress/**/*.{js,ts,vue}'
     ],
     theme: {
@@ -382,7 +383,7 @@ export default {
 ```ts [.vitepress/posts.data.mts]
 import { createContentLoader } from 'vitepress';
 
-export default createContentLoader('posts/*/*.md', {
+export default createContentLoader('posts/**/index.md', {
     includeSrc: false,
     transform(rawData) {
         return rawData
@@ -457,7 +458,7 @@ import moment from 'moment';
 </ul>
 ```
 こんな感じになる。
-![blog-posts-preview](./0205-blog-posts.png)
+![blog-posts-preview](0205-blog-posts.png)
 
 ## タグページの作成
 
@@ -485,7 +486,7 @@ import { globSync } from 'glob'
 
 var tags = {}
 
-var files = globSync("docs/posts/**/*.md");
+var files = globSync("docs/posts/**/index.md");
 
 files.forEach(file => {
     var data = fs.readFileSync(file, 'utf8');
@@ -611,7 +612,7 @@ GitHubとの連携は済ませてある前提とする。
 
 [Cloudflare Dashboard](https://dash.cloudflare.com/)から、Workers & Pages -> 右上の作成ボタン -> Pages -> Gitと遷移する。
 
-![cloudflare-git-repo](./0205-blog-cf-git-repo.png)
+![cloudflare-git-repo](0205-blog-cf-git-repo.png)
 
 blogのリポジトリを選択しセットアップ開始。
 
@@ -619,13 +620,13 @@ blogのリポジトリを選択しセットアップ開始。
 加えて、環境変数に`NODE_VERSION=23.7.0`を追加しておく。
 
 
-![cloudflare-build-settings](./0205-blog-cf-build-settings.png)
+![cloudflare-build-settings](0205-blog-cf-build-settings.png)
 
 「保存してデプロイ」を押すとビルドが始まる。
 
 ビルドが終わったら、Pagesからblogの設定ページを開いて、カスタムドメインを追加する。
 
-![cloudflare-pages-domain](./0205-blog-cf-domain.png)
+![cloudflare-pages-domain](0205-blog-cf-domain.png)
 
 以上でデプロイ完了、ブログ完成。
 

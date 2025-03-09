@@ -1,7 +1,7 @@
 export default {
     content: [
         './docs/index.md',
-        './docs/**/*.md',
+        './docs/**/index.md',
         './.vitepress/**/*.{js,ts,vue}'
     ],
     theme: {
