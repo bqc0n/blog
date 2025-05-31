@@ -15,6 +15,7 @@
         "tailwindcss": "3.4.17",
         "vitepress": "^1.6.3",
         "vitepress-plugin-comment-with-giscus": "^1.1.15",
+        "vitepress-plugin-d2": "^1.0.4",
         "vitepress-plugin-group-icons": "^1.3.5",
         "vitepress-plugin-lightbox": "^1.0.2",
         "vitepress-plugin-mermaid": "^2.0.17",
@@ -1029,6 +1030,8 @@
     "vitepress": ["vitepress@1.6.3", "", { "dependencies": { "@docsearch/css": "3.8.2", "@docsearch/js": "3.8.2", "@iconify-json/simple-icons": "^1.2.21", "@shikijs/core": "^2.1.0", "@shikijs/transformers": "^2.1.0", "@shikijs/types": "^2.1.0", "@types/markdown-it": "^14.1.2", "@vitejs/plugin-vue": "^5.2.1", "@vue/devtools-api": "^7.7.0", "@vue/shared": "^3.5.13", "@vueuse/core": "^12.4.0", "@vueuse/integrations": "^12.4.0", "focus-trap": "^7.6.4", "mark.js": "8.11.1", "minisearch": "^7.1.1", "shiki": "^2.1.0", "vite": "^5.4.14", "vue": "^3.5.13" }, "peerDependencies": { "markdown-it-mathjax3": "^4", "postcss": "^8" }, "optionalPeers": ["markdown-it-mathjax3", "postcss"], "bin": { "vitepress": "bin/vitepress.js" } }, "sha512-fCkfdOk8yRZT8GD9BFqusW3+GggWYZ/rYncOfmgcDtP3ualNHCAg+Robxp2/6xfH1WwPHtGpPwv7mbA3qomtBw=="],
 
     "vitepress-plugin-comment-with-giscus": ["vitepress-plugin-comment-with-giscus@1.1.15", "", { "dependencies": { "@giscus/vue": "^2.2.8" } }, "sha512-1DJjgN+7SYvn5ZkjuSXPmz7nlqfcrh4qCGGviiZghA2ELXnaO2m9WY7m+RisPSaqCn90xqe0JbO2T4NMq8iUBg=="],
+
+    "vitepress-plugin-d2": ["vitepress-plugin-d2@1.0.4", "", {}, "sha512-UIdTdgNhbZVpK//BsXU/4td5lDL2jBGHxBeZnCwIndBb+6dKOFS0Y11EQ2uR/DVPsCZCZBzPymodXQT4Lz1opg=="],
 
     "vitepress-plugin-group-icons": ["vitepress-plugin-group-icons@1.3.5", "", { "dependencies": { "@iconify-json/logos": "^1.2.4", "@iconify-json/vscode-icons": "^1.2.10", "@iconify/utils": "^2.2.1" } }, "sha512-1f1NP7osRYlNTR0yS5CAqcaasKHRSAzFKpeCUOfCPwYLAFxhCxsEbRtPBm0U1CfrDVa303MsjX18ngGpFGxIMA=="],
 
