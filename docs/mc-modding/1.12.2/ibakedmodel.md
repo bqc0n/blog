@@ -16,35 +16,45 @@
 
 ## `IBakedModel`とはなに?
 
-TESRと同じようにDynamicなRenderingを行うためのものなのだが、使う準備と関連するクラスが多い。
+TESRと同じようにDynamicなRenderingを行うものである。
+TESRが"active"にTileEntityを描画するのに対し、`IBakedModel`は"passive"である。
+つまり、TESRの`render`メソッドは常に呼ばれ続けるが、`IBakedModel`の`getQuads`メソッドは、周りのブロックが変更された時などにのみ呼ばれる。
+
+それと、クラス間の依存関係が多めで把握しづらい。せっかくなので以下にまとめてみた。
 
 ```d2
 ICustomModelLoader: {
   shape: class
-
-  onResourceManagerReload(IResourceManager resourceManager)
-  accepts(ResourceLocation modelLocation): boolean
-  loadModel(ResourceLocation modelLocation): IModel
 }
 
 
 IModel: {
   shape: class
-  
-  getTextures(): Set\<ResourceLocation\>
-  bake(\.\.\.): IBakedModel
 }
 
 IBakedModel: {
   shape: class
-  
-  getQuads(IBlockState state, EnumFacing side, long rand): List\<BakedQuad\>
-  isAmbientOcclusion(): boolean
-  isGui3d(): boolean
-  getParticleTexture(): TextureAtlasSprite
-  getItemCameraTransforms(): ItemCameraTransforms
-  getOverrides(): ItemOverrideList
 }
 
-ICustomModelLoader -> IModel -> IBakedModel
+IExtendedBlockState: {
+  shape: class
+}
+
+Block: {
+  shape: class
+}
+
+ICustomModelLoader -> IModel
+IModel -> IBakedModel
+IBakedModel -> IExtendedBlockState
+Block -> IExtendedBlockState
+```
+
+## コード
+まずは動くコードを。
+
+```java [ClientProxy]
+public void preInit(FMLPreInitializationEvent e) {
+    ModelLoaderRegistry.registerLoader(new ExampleModelLoader());
+}
 ```

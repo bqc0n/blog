@@ -24,7 +24,7 @@ export default withMermaid({
       md.use(lightbox)
       md.use(d2, {
         forceAppendix: false,
-        layout: Layout.ELK,
+        layout: Layout.DAGRE,
         theme: Theme.NEUTRAL_DEFAULT,
         darkTheme: Theme.DARK_MUAVE,
         padding: 100,
@@ -32,7 +32,7 @@ export default withMermaid({
         timeout: 120,
         sketch: false,
         center: false,
-        scale: -1,
+        scale: 0.7,
         target: "*",
         fontItalic: null,
         fontBold: null,
