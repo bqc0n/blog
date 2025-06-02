@@ -1,11 +1,11 @@
 import {defineConfig} from 'vitepress'
-import { withMermaid } from "vitepress-plugin-mermaid";
+import {withMermaid} from "vitepress-plugin-mermaid";
 import markdownItFootnote from 'markdown-it-footnote'
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons'
 import {GitChangelog, GitChangelogMarkdownSection} from '@nolebase/vitepress-plugin-git-changelog/vite'
 import lightbox from "vitepress-plugin-lightbox"
 import d2 from "vitepress-plugin-d2"
-import { Layout, Theme, FileType } from 'vitepress-plugin-d2/dist/config';
+import {Layout, Theme, FileType} from 'vitepress-plugin-d2/dist/config';
 
 
 // https://vitepress.dev/reference/site-config
@@ -64,18 +64,28 @@ export default withMermaid({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {text: 'Home', link: '/'},
-      {text: 'About', link: '/about/'}
+      {text: 'About', link: '/about/'},
+      {text: "Minecraft Modding", link: '/mc-modding/'},
     ],
 
-    sidebar: [
-      {
-        items: [
-          {text: 'Home', link: '/'},
-          {text: 'Posts', link: '/posts/'},
-          {text: 'Tags', link: '/tags/'}
-        ]
-      }
-    ],
+    sidebar: {
+      "/": [
+        {
+          items: [
+            {text: 'Home', link: '/'},
+            {text: 'Posts', link: '/posts/'},
+            {text: 'Tags', link: '/tags/'}
+          ]
+        }
+      ],
+      "/mc-modding/": [
+        {
+          items: [
+            {text: 'Index', link: '/mc-modding/'},
+          ]
+        }
+      ]
+    },
 
     socialLinks: [
       {icon: 'github', link: 'https://github.com/bqc0n/blog'}

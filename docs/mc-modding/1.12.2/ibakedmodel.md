@@ -1,3 +1,8 @@
+---
+title: "Minecraft Modding (1.12.2) #1 - IBakedModel"
+order: 1
+---
+
 # Minecraft Modding (1.12.2) #1 - IBakedModel
 
 ## はじめに
@@ -50,8 +55,16 @@ IBakedModel -> IExtendedBlockState
 Block -> IExtendedBlockState
 ```
 
-## コード
-まずは動くコードを。
+## 作ってみる
+
+```java [ExampleModel.java]
+public class ExampleModel implements IModel {
+    @Override
+    public IBakedModel bake(IModelState state, VertexFormat format, Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
+        return new ExampleBakedModel(ModelLoaderRegistry.getMissingModel().bake(state, format, bakedTextureGetter));
+    }
+}
+```
 
 ```java [ClientProxy]
 public void preInit(FMLPreInitializationEvent e) {
