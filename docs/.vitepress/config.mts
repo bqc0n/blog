@@ -1,9 +1,11 @@
 import {defineConfig} from 'vitepress'
-import { withMermaid } from "vitepress-plugin-mermaid";
+import {withMermaid} from "vitepress-plugin-mermaid";
 import markdownItFootnote from 'markdown-it-footnote'
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons'
 import {GitChangelog, GitChangelogMarkdownSection} from '@nolebase/vitepress-plugin-git-changelog/vite'
 import lightbox from "vitepress-plugin-lightbox"
+import d2 from "vitepress-plugin-d2"
+import {Layout, Theme, FileType} from 'vitepress-plugin-d2/dist/config';
 
 
 // https://vitepress.dev/reference/site-config
@@ -20,6 +22,24 @@ export default withMermaid({
       md.use(markdownItFootnote)
       md.use(groupIconMdPlugin)
       md.use(lightbox)
+      md.use(d2, {
+        forceAppendix: false,
+        layout: Layout.DAGRE,
+        theme: Theme.NEUTRAL_DEFAULT,
+        darkTheme: Theme.DARK_MUAVE,
+        padding: 100,
+        animatedInterval: 0,
+        timeout: 120,
+        sketch: false,
+        center: false,
+        scale: 0.7,
+        target: "*",
+        fontItalic: null,
+        fontBold: null,
+        fontSemiBold: null,
+        fileType: FileType.SVG,
+        directory: "d2-diagrams",
+      });
     }
   },
 
@@ -43,19 +63,29 @@ export default withMermaid({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      {text: 'Home', link: '/'},
-      {text: 'About', link: '/about/'}
+      {text: 'Blog', link: '/'},
+      {text: "Minecraft Modding", link: '/minecraft-modding/'},
+      {text: 'About', link: '/about/'},
     ],
 
-    sidebar: [
-      {
-        items: [
-          {text: 'Home', link: '/'},
-          {text: 'Posts', link: '/posts/'},
-          {text: 'Tags', link: '/tags/'}
-        ]
-      }
-    ],
+    sidebar: {
+      "/": [
+        {
+          items: [
+            {text: 'Home', link: '/'},
+            {text: 'Posts', link: '/posts/'},
+            {text: 'Tags', link: '/tags/'}
+          ]
+        }
+      ],
+      "/minecraft-modding/": [
+        {
+          items: [
+            {text: 'Index', link: '/mc-modding/'},
+          ]
+        }
+      ]
+    },
 
     socialLinks: [
       {icon: 'github', link: 'https://github.com/bqc0n/blog'}
@@ -63,7 +93,7 @@ export default withMermaid({
 
     footer: {
       message: "Released Under the MIT License",
-      copyright: "Copyright ©️ 2025 bqc0n"
+      copyright: "Copyright (c) 2025 bqc0n"
     }
   },
 
