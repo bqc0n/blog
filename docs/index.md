@@ -15,7 +15,7 @@ import moment from 'moment';
 
 個人的な備忘録集です。記事の内容は、[MIT-License](https://github.com/bqc0n/blog/blob/main/LICENSE)で利用可能です。
 
-Minecraft Modding関連の記事は[別でまとめています](/minecraft-modding)。
+Minecraft Modding関連の記事は[別でまとめています](./minecraft-modding/index.md)。
 
 <article v-for="post of posts" class="home-posts-article">
   <a :href="post.url" class="block text-inherit no-underline hover:underline">

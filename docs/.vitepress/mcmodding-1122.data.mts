@@ -1,6 +1,6 @@
 import { createContentLoader } from 'vitepress';
 
-export default createContentLoader('mc-modding/1.12.2/**.md', {
+export default createContentLoader('minecraft-modding/1.12.2/**.md', {
     includeSrc: false,
     transform(rawData) {
         return rawData
