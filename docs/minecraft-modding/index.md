@@ -6,11 +6,11 @@ prev: false
 comment: false
 ---
 <script lang="ts" setup>
-import { data as posts_1122 } from "../.vitepress/mcmodding-1122.data"
+import { data as posts_1122 } from "../.vitepress/mcmodding-1122.data";
 import moment from 'moment';
 </script>
 
-# Minecraft Modding こぼれ話
+# Minecraft Modding 解説
 
 ## Minecraft 1.12.2
 

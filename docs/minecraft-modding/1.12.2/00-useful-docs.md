@@ -31,7 +31,7 @@ SSIA。1.8の内容がそのまま1.12.2でも使えたりするので、自分�
 
 ### [Modding修正講座](https://www.nicovideo.jp/user/1791635/series/104078) (日本語動画)
 
-HaC作者による、不具合を修正する形の解説動画シリーズ。
+HaC作者による、不具合を修正する形の解説動画シリーズ。デバッグの基本や、`@SideOnly`など クライアント/サーバーの分離などについて学べる。
 
 ### [TNT Modders | Mod開発講座](https://www.tntmodders.com/tutorial/) (日本語)
 
