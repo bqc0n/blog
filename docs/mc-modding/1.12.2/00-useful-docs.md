@@ -9,6 +9,7 @@ order: 0
 
 ## TL;DR
 
+- [Forge Documentation](https://docs.minecraftforge.net/en/1.12.x/) (英語)
 - [Minecraft Modding Wiki](https://mcmodding.jp/modding/index.php/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB%E4%B8%80%E8%A6%A7) (日本語)
 - [TNT Modders | Mod開発講座](https://www.tntmodders.com/tutorial/) (日本語)
 - [Modding修正講座](https://www.nicovideo.jp/user/1791635/series/104078) (日本語動画)
@@ -19,6 +20,10 @@ order: 0
 日本語だけだと情報が少ないので、英語でも検索することをオススメする。
 
 ## 本編
+
+### [Forge Documentation](https://docs.minecraftforge.net/en/1.12.x/) (英語)
+
+公式ドキュメント。[BlockState](https://docs.minecraftforge.net/en/1.12.x/blocks/states/) [まわりの話](https://docs.minecraftforge.net/en/1.12.x/models/blockstates/introduction/)が詳しく書かれていたり、[こう言う罠](https://docs.minecraftforge.net/en/1.12.x/tileentities/tileentity/#keeping-a-tileentity-through-changing-blockstates)についても書かれていたりするので、一度通して読んでおくといいと思う。
 
 ### [Minecraft Modding Wiki](https://mcmodding.jp/modding/index.php/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB%E4%B8%80%E8%A6%A7) (日本語)
 
