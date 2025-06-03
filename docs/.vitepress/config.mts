@@ -63,9 +63,9 @@ export default withMermaid({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      {text: 'Home', link: '/'},
+      {text: 'Blog', link: '/'},
+      {text: "Minecraft Modding", link: '/minecraft-modding/'},
       {text: 'About', link: '/about/'},
-      {text: "Minecraft Modding", link: '/mc-modding/'},
     ],
 
     sidebar: {
@@ -93,7 +93,7 @@ export default withMermaid({
 
     footer: {
       message: "Released Under the MIT License",
-      copyright: "Copyright ©️ 2025 bqc0n"
+      copyright: "Copyright (c) 2025 bqc0n"
     }
   },
 
