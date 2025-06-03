@@ -1,6 +1,7 @@
 ---
 title: "Minecraft Modding (1.12.2) #1 - IBakedModel"
 order: 1
+draft: true
 ---
 
 # Minecraft Modding (1.12.2) #1 - IBakedModel
