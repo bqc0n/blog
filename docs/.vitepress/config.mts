@@ -81,7 +81,7 @@ export default withMermaid({
       "/minecraft-modding/": [
         {
           items: [
-            {text: 'Index', link: '/mc-modding/'},
+            {text: 'Index', link: '/minecraft-modding/'},
           ]
         }
       ]
