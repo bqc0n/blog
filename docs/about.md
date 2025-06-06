@@ -11,8 +11,6 @@ Minecraftとか自宅サーバーとか。
 
 ## SNS
 
-Misskey, Twitterは低浮上
-
 - Github: https://github.com/bqc0n
 - Misskey: https://misskey.bqc0n.com/@bqc0n
-- Twitter(新X): https://x.com/bqc0n7
+- Twitter(新X): https://x.com/bqc0nn
