@@ -183,9 +183,9 @@ fun collectGameTests(asmDataTable: ASMDataTable) {
 createTestNameとcreateStructureLocationは名前の通り、アノテーションの情報や、それが無いならクラス名などからテスト名やStructureの名前空間を作成している。
 testNameはシンプルなのだが、structureLocationは少々複雑。
 
-1. Annotationに`template`が指定されていないなら、`$holderの名前空間.$class名.$method名`の形式
+1. Annotationに`template`が指定されていないなら、`$holderの名前空間:$class名_$method名`の形式
 1. `template`に":"が含まれている、すなわち`ResourceLocation`の形式であればそのまま使う
-1. ":"はないが`template`が指定されているなら、`$holderの名前空間.$class名.$template`の形式
+1. ":"はないが`template`が指定されているなら、`$holderの名前空間:$class名_$template`の形式
 
 というように決まる。
 
@@ -197,16 +197,18 @@ fun createTestName(holder: GameTestHolder, clazz: Class<*>, method: Method): Str
 fun createStructureLocation(holder: GameTestHolder, clazz: Class<*>, method: Method): ResourceLocation {
     val gameTest = method.getAnnotation(GameTest::class.java)!!
     if (gameTest.template.isEmpty()) {
-        return ResourceLocation(holder.namespace, "${clazz.simpleName.lowercase()}.${method.name.lowercase()}")
+        return ResourceLocation(holder.namespace, "${clazz.simpleName.lowercase()}_${method.name.lowercase()}")
     }
     val structureName = gameTest.template
     return if (structureName.contains(":")) {
         ResourceLocation(structureName)
     } else {
-        ResourceLocation("${holder.namespace}:${clazz.simpleName}.${structureName.lowercase()}")
+        ResourceLocation("${holder.namespace}:${clazz.simpleName}_${structureName.lowercase()}")
     }
 }
 ```
+
+class名とtemplate名の値の区切り文字が`_`なのは、このバージョンだと`.`を含められないからである。
 
 ### validateTestMethod
 
@@ -257,13 +259,7 @@ private fun methodIntoConsumer(method: Method): java.util.function.Consumer<IGam
 
 ```kotlin
 data class GameTestContext(
-    /**
-     * The world in which the game test is being run.
-     */
     val world: WorldServer,
-    /**
-     * The position of the structure block that defines the test area.
-     */
     val structureBlockPos: BlockPos,
 )
 ```
@@ -365,7 +361,7 @@ object GameTestCommand : CommandBase() {
 <video controls="controls" src="./0605-structure-block.mp4"></video>
 
 すると、プレイヤーの足元にStructureBlockが召喚され、Loadモードに設定されたうえでテンプレートが`mctest:tests_testexample`に設定される。
-このバージョンは名前に`.`を含めないようで、アンダースコアに置き換わっているが、うまく動いている！やったね。
+うまく動いている！やったね。
 
 ## 次回
 
