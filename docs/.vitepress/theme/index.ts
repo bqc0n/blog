@@ -28,7 +28,7 @@ export default {
             inputPosition: 'top',
             lang: 'jp',
             locales: {
-                'ja-JP': 'ja',
+                'ja': 'ja',
                 'en-US': 'en'
             },
             homePageShowComment: false, // Whether to display the comment area on the homepage, the default is false
