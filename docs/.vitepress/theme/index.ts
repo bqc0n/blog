@@ -1,13 +1,13 @@
-import DefaultTheme from 'vitepress/theme'
+import DefaultTheme from 'vitepress/theme-without-fonts'
 import './custom.css'
+import "./custom-fonts.css"
 import 'virtual:group-icons.css'
 import { NolebaseGitChangelogPlugin } from "@nolebase/vitepress-plugin-git-changelog/client"
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
-import { toRefs, h } from "vue";
+import { toRefs } from "vue";
 
-import PostHeader from "./PostHeader.vue";
 import Layout from "./Layout.vue";
 
 export default {

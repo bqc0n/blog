@@ -1,4 +1,3 @@
-import {defineConfig} from 'vitepress'
 import {withMermaid} from "vitepress-plugin-mermaid";
 import markdownItFootnote from 'markdown-it-footnote'
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons'
@@ -15,6 +14,7 @@ export default withMermaid({
 
   lastUpdated: true,
   cleanUrls: true,
+  lang: "ja",
 
   markdown: {
     math: true,
@@ -105,4 +105,19 @@ export default withMermaid({
   mermaidPlugin: {
     class: "mermaid my-class", // set additional css classes for parent container
   },
+
+  head: [
+    [
+      'link',
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
+    ],
+    [
+      'link',
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
+    ],
+    [
+      'link',
+      { href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap', rel: 'stylesheet' }
+    ]
+  ]
 })
