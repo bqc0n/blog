@@ -1,5 +1,5 @@
 ---
-title: "Minecraft 1.12.2にGame Testsを移植したい #0 構想編"
+title: "Minecraft 1.12.2にGame Testsを移植したい - #0 構想編"
 date: 2025-06-4
 description: 1.17以上で使えるGame Testsの機能が欲しいので、1.12.2への移植を試みる
 tags: [ "minecraft", "coding" ]
@@ -9,6 +9,12 @@ tags: [ "minecraft", "coding" ]
 とても欲しい機能なのだが、当然1.12.2にはない。なので移植を試みる。
 
 今回の記事はbraindump的な側面を多分に含むので注意(保険)。
+
+## シリーズ
+
+- [Minecraft 1.12.2にGame Testsを移植したい - #0 構想編](../0604-mctest-0)
+- [Minecraft 1.12.2にGame Testsを移植したい #1 - Method収集とStructureBlockの召喚](../0605-mctest-1)
+- [Minecraft 1.12.2にGame Testsを移植したい #2 - テストの実行](../0608-mctest-2)
 
 ## Game Tests
 

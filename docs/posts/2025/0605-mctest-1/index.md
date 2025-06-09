@@ -5,6 +5,12 @@ description: "@GameTestが付けられたメソッドを収集して、Structure
 tags: [ "minecraft", "coding" ]
 ---
 
+## シリーズ
+
+- [Minecraft 1.12.2にGame Testsを移植したい - #0 構想編](../0604-mctest-0)
+- [Minecraft 1.12.2にGame Testsを移植したい #1 - Method収集とStructureBlockの召喚](../0605-mctest-1)
+- [Minecraft 1.12.2にGame Testsを移植したい #2 - テストの実行](../0608-mctest-2)
+
 ## 環境整備
 
 Gradle Plugin化とかはよく分からないので後回しにして、ひとまずModとして実装していく。
