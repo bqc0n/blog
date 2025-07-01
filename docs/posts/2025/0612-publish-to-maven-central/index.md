@@ -8,6 +8,12 @@ tags: [ "minecraft", "coding" ]
 
 公開の具体的な手順については[この記事様](https://zenn.dev/orangain/articles/publish-to-maven-central-using-gradle)を参考にしてほしい。
 
+## 環境
+
+- Minecraft 1.12.2
+- Minecraft Forge 14.23.5.2847
+- RetroFuturaGradle 1.3.27
+
 ## versionが`unspecified`になる。
 
 例えば
@@ -19,7 +25,7 @@ Execution failed for task ':sonatypeCentralUpload'.
 のように、バージョンの部分が`unspecified`になってしまう問題。
 
 これはSonatypeCentralUpload pluginが`project.version`からバージョンを取得しているためである。
-例えばCleanroomMCのTemplateDevEnvの場合、バージョンが格納されている変数は`mod_version`であるため、このようなエラーとなってしまっていた。
+例えばCleanroomMCのTemplateDevEnvの場合、バージョンが格納されている変数は`mod_version`であるため、このようなエラーとなってしまう。
 
 `project.version`を指定すれば解決できる。
 
@@ -54,3 +60,7 @@ tasks.named<SonatypeCentralUploadTask>("sonatypeCentralUpload") {
     ))
 }
 ```
+
+::: info
+bruh
+:::
