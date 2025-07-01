@@ -60,7 +60,3 @@ tasks.named<SonatypeCentralUploadTask>("sonatypeCentralUpload") {
     ))
 }
 ```
-
-::: info
-bruh
-:::
