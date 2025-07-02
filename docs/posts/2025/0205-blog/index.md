@@ -458,7 +458,7 @@ import moment from 'moment';
 </ul>
 ```
 こんな感じになる。
-![blog-posts-preview](0205-blog-posts.png)
+![blog-posts-preview](0205-blog-posts.webp)
 
 ## タグページの作成
 
@@ -612,7 +612,7 @@ GitHubとの連携は済ませてある前提とする。
 
 [Cloudflare Dashboard](https://dash.cloudflare.com/)から、Workers & Pages -> 右上の作成ボタン -> Pages -> Gitと遷移する。
 
-![cloudflare-git-repo](0205-blog-cf-git-repo.png)
+![cloudflare-git-repo](0205-blog-cf-git-repo.webp)
 
 blogのリポジトリを選択しセットアップ開始。
 
@@ -620,13 +620,13 @@ blogのリポジトリを選択しセットアップ開始。
 加えて、環境変数に`NODE_VERSION=23.7.0`を追加しておく。
 
 
-![cloudflare-build-settings](0205-blog-cf-build-settings.png)
+![cloudflare-build-settings](0205-blog-cf-build-settings.webp)
 
 「保存してデプロイ」を押すとビルドが始まる。
 
 ビルドが終わったら、Pagesからblogの設定ページを開いて、カスタムドメインを追加する。
 
-![cloudflare-pages-domain](0205-blog-cf-domain.png)
+![cloudflare-pages-domain](0205-blog-cf-domain.webp)
 
 以上でデプロイ完了、ブログ完成。
 

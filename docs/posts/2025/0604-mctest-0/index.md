@@ -32,19 +32,19 @@ public class Tests {
 すると、`@GameTest`アノテーションがつけられている`placeDirt`メソッドが実行される。
 `BlockPos.ZERO.above()`の位置に土ブロックが置かれ、置かれたブロックが土であることがAssertされる。
 
-![test-placedirt-success](./0604-gametests-placedirt-success.png)
+![test-placedirt-success](./0604-gametests-placedirt-success.webp)
 
 Fail時 の動作も見てみよう。
 置くブロックをStoneにして、もう一度テストを実行してみる。
 すると当然テストに失敗する。
 エラーメッセージが出るのに加え、オーバーレイでも表示してくれるようだ。
 
-![test-placedirt-fail](./0604-gametests-placedirt-fail.png)
+![test-placedirt-fail](./0604-gametests-placedirt-fail.webp)
 
 Lecternにはエラーメッセージが格納されている。
 
 <center>
-    <img src="./0604-gametests-placedirt-fail-lectern.png" width="400" alt="test-fail-lectern">
+    <img src="./0604-gametests-placedirt-fail-lectern.webp" width="400" alt="test-fail-lectern">
 </center>
 
 ## 方針

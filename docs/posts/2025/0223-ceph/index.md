@@ -12,7 +12,7 @@ tags: [ "proxmox", "ceph" ]
 ### Setup
 
 現時点での最新バージョン(squid 19.2)を使います。RepositoryはNo-Subscriptionにします。
-![setup-1](0223-ceph-install-1.png)
+![setup-1](0223-ceph-install-1.webp)
 
 以下のパッケージが入るようです。
 ```
@@ -51,63 +51,63 @@ CorosyncとPublicは分けたほうがいいでしょう。
 :::
 
 Replicationはデフォルトのままでいいでしょう。
-![setup-network](0223-ceph-install-network.png)
+![setup-network](0223-ceph-install-network.webp)
 
 ### Success
 
 完了したらこんな感じになります。
-![setup-success](0223-ceph-success.png)
+![setup-success](0223-ceph-success.webp)
 
 ## Monitorを増やす
 
 Ceph Monitorを増やします。
 それぞれ別のノードで作ります。普通にインストールするとすでに1つだけあるはず。
 3つ以上はいらないらしい。
-![monitor](0223-ceph-monitor.png)
+![monitor](0223-ceph-monitor.webp)
 
 ## Managerも増やす
 
 Monitorと同じようにManagerを増やします。
 増やしたやつはStandbyになるはずです。
-![manager](0223-ceph-manager.png)
+![manager](0223-ceph-manager.webp)
 
 ## OSDをつくる
 
 OSDのメニューでCreate OSDからOSDを作ります。
 
-![create-osd](0223-ceph-osd.png)
+![create-osd](0223-ceph-osd.webp)
 
 ## CephFSの作成
 
 ### MDS (MetaData Server)の作成
 
 全ノードで作っておきます。
-![create-ceph-mds](0223-ceph-mds.png)
+![create-ceph-mds](0223-ceph-mds.webp)
 
 ここまでやるとクラスタのCeph/Servicesの項目がAll Greenになります。綺麗。
-![all-green](0223-ceph-cluster-services.png)
+![all-green](0223-ceph-cluster-services.webp)
 
 ### CephFSの作成
 
 左上のCreate CephFSから作れます。
 値はデフォルトでいいと思います。
-![create-cephfs](0223-ceph-create-cephfs.png)
+![create-cephfs](0223-ceph-create-cephfs.webp)
 できてます。
-![cephfsls](0223-ceph-fsls.png)
+![cephfsls](0223-ceph-fsls.webp)
 CephFSをつくると、データとメタデータ用のPoolが自動で作られるようです。
-![cephfs-pools](0223-cephfs-pools.png)
+![cephfs-pools](0223-cephfs-pools.webp)
 ProxmoxのStorageとしても見えています。
-![cephfs-proxmox-storage](0223-ceph-proxmox-storage.png)
+![cephfs-proxmox-storage](0223-ceph-proxmox-storage.webp)
 
 ### 試しにISOファイルを入れてみる
 
 試しにUbuntu ServerのISOを入れてみましょう。
 https://ftp.udx.icscoe.jp/Linux/ubuntu-releases/24.04.2/ から落とせる、`ubuntu-24.04.2-live-server-amd64.iso`を使います。
 
-![ceph-iso-download](0223-ceph-try-iso.png)
+![ceph-iso-download](0223-ceph-try-iso.webp)
 
 いい具合にReplicationされていそうです。
-![ceph-replication](0223-ceph-replication.png)
+![ceph-replication](0223-ceph-replication.webp)
 
 ## VMを作れるようにする
 
@@ -115,13 +115,13 @@ https://ftp.udx.icscoe.jp/Linux/ubuntu-releases/24.04.2/ から落とせる、`u
 
 RBD Poolを作成します。名前は適当に`vm`で。
 
-![ceph-vm-rbd](0223-ceph-vm-rbd.png)
+![ceph-vm-rbd](0223-ceph-vm-rbd.webp)
 
 ### VMの作成
 
 普通にVMを作りつつ、Disksの設定をします。
 Storageに、作ったRBDを指定します。
-![ceph-create-vm-with-rbd](0223-ceph-create-vm-rbd.png)
+![ceph-create-vm-with-rbd](0223-ceph-create-vm-rbd.webp)
 
 ## k8sから使えるようにする
 
