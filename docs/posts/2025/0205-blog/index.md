@@ -2,6 +2,7 @@
 title: 先人の知恵を借りまくってMarkdownで書けるブログを作る
 date: 2025-02-05
 description: VitePressを使って、Markdownで書けるブログを作成する
+thumbnail: ./thumbnail.png
 tags: [ "other" ]
 ---
 
