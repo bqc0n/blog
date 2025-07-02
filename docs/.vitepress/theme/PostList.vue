@@ -2,7 +2,8 @@
 import { useData } from 'vitepress'
 
 // ステップ2で作成したローダーからデータを取得
-import { data as posts } from '../posts.data.mts';
+import { data as allPosts } from '../posts.data.mts';
+const posts = allPosts.slice(0, 3);
 </script>
 
 <template>

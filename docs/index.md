@@ -7,8 +7,6 @@ comment: false
 ---
 
 <script setup>
-import { data as posts } from '.vitepress/posts.data.mts';
-import moment from 'moment';
 import PostList from '.vitepress/theme/PostList.vue'
 </script>
 
@@ -18,5 +16,10 @@ import PostList from '.vitepress/theme/PostList.vue'
 
 Minecraft Moddingの解説記事は[別でまとめています](./minecraft-modding/index.md)。
 
+<div style="text-align: center;">
+<h3>Recent Posts</h3>
+</div>
+
+---
 
 <PostList></PostList>
