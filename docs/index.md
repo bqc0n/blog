@@ -9,7 +9,7 @@ comment: false
 <script setup>
 import { data as posts } from '.vitepress/posts.data.mts';
 import moment from 'moment';
-import PostList from './.vitepress/theme/PostList.vue'
+import PostList from '.vitepress/theme/PostList.vue'
 </script>
 
 # blog.bqc0n.com

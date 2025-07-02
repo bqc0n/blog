@@ -2,7 +2,7 @@
 import { useData } from 'vitepress'
 
 // ステップ2で作成したローダーからデータを取得
-const { data: posts } = useData()
+import { data as posts } from '../posts.data.mts';
 </script>
 
 <template>
